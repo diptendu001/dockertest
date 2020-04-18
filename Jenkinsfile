@@ -6,15 +6,35 @@ pipeline {
     agent any  
     stages 
     {
-     stage('Building image') 
-       {
-         steps
+      stage("VERSION")
          {
+          steps {
+             sh "docker --version"
+                }
+         }
+     
+       stage('Building image') 
+         {
+          steps
+           {
            script 
            {
-             sh "systemctl status docker"
+            sh "docker build --tag=pysample-v1 ."
+            sh "docker tag pysample-v1 diptendu001/test100:pysample-1804"
            }
+          }
          }
-       }
+       stage('Deploye image to Docker')
+          {
+          steps
+           {
+           script
+             {
+             sh "docker push diptendu001/test100:pysample-1804"
+             }
+           }
+          }
      }
   }
+
+
