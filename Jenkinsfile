@@ -19,8 +19,8 @@ pipeline {
            {
            script 
            {
-            sh "docker build --tag=pysample-v1 ."
-            sh "docker tag pysample-v1 diptendu001/test100:pysample-1804"
+            sh "docker build --tag=pysample-v2 ."
+            sh "docker tag pysample-v2 diptendu001/test100:pysample-14092020"
            }
           }
          }
@@ -30,7 +30,7 @@ pipeline {
            {
            script
              {
-             sh "docker push diptendu001/test100:pysample-1804"
+             sh "docker push diptendu001/test100:pysample-14092020"
              }
            }
           }
